@@ -43,7 +43,7 @@ def image_to_tensor(image, target_width=None):
 
 def read_image(path, target_width=None):
     """输入图像路径，输出标准化后的四维 tensor"""
-    image = Image.open(path)
+    image = Image.open(path).convert('RGB')
     return preprocess_image(image, target_width)
 
 
