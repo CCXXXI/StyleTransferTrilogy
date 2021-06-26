@@ -62,9 +62,11 @@ def recover_tensor(tensor):
     return tensor.clamp(0, 1)
 
 
-def imshow(tensor, title=None):
+def imshow(tensor, title=None, save=False):
     """输入 GPU 上的四维 tensor，然后绘制该图像"""
     image = recover_image(tensor)
+    if save:
+        Image.fromarray(image).save('images/output.png')
     print(image.shape)
     plt.imshow(image)
     if title is not None:
